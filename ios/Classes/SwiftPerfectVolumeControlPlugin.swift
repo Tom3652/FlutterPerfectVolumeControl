@@ -41,7 +41,7 @@ public class SwiftPerfectVolumeControlPlugin: NSObject, FlutterPlugin {
     /// 获得系统当前音量
     public func getVolume(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         do {
-            try AVAudioSession.sharedInstance().setActive(true)
+            //try AVAudioSession.sharedInstance().setActive(true)
             result(AVAudioSession.sharedInstance().outputVolume);
         } catch let error as NSError {
             result(FlutterError(code: String(error.code), message: "\(error.localizedDescription)", details: "\(error.localizedDescription)"));
@@ -85,7 +85,7 @@ public class SwiftPerfectVolumeControlPlugin: NSObject, FlutterPlugin {
     /// 绑定监听器
     public func bindListener() {
         do {
-            try AVAudioSession.sharedInstance().setActive(true)
+            //try AVAudioSession.sharedInstance().setActive(true)
             AVAudioSession.sharedInstance().addObserver(self, forKeyPath: "outputVolume", options: [.new, .old], context: nil)
         } catch let error as NSError {
             print("\(error)")
